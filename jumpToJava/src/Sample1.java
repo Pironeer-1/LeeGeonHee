@@ -1,4 +1,4 @@
-public class Sample {
+public class Sample1 {
 
     public static void main(String[] args) {
         System.out.println("Hello java"); //명령문, 명령문은 여러 개 가능
