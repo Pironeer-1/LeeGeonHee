@@ -1,6 +1,6 @@
 package chapter5;
 
-abstract class Predator extends Animal {
+abstract class Predator3 extends Animal {
     abstract String getFood();
 
     void printFood() {
