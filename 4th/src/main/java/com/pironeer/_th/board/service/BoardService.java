@@ -5,7 +5,7 @@ import com.pironeer._th.board.dto.request.BoardUpdateRequest;
 import com.pironeer._th.board.dto.response.BoardResponse;
 import com.pironeer._th.board.entity.Board;
 import com.pironeer._th.board.mapper.BoardMapper;
-import com.pironeer._th.board.repository.BoardRepository;
+import com.pironeer._th.board.repository.BoardMemoryRepository;
 import com.pironeer._th.global.dto.response.result.ListResult;
 import com.pironeer._th.global.dto.response.result.SingleResult;
 import com.pironeer._th.global.exception.CustomException;
@@ -19,7 +19,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class BoardService {
-    private final BoardRepository boardRepository;
+    private final BoardMemoryRepository boardRepository;
 
     public SingleResult<Long> save(BoardCreateRequest request) {
         Board savedBoard =boardRepository.save(BoardMapper.from(request));
