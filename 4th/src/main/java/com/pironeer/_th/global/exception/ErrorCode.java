@@ -46,7 +46,11 @@ public enum ErrorCode {
     USER_WRONG_PASSWORD(-302, "비밀번호가 틀렸습니다.", 401),
 
     // Board
-    BOARD_NOT_FOUND(-400, "조회된 Board 객체가 없습니다.", 406);
+    BOARD_NOT_FOUND(-400, "조회된 Board 객체가 없습니다.", 406),
+
+    // Favorite
+    ALREADY_FAVORITED(-500, "이미 즐겨찾기에 추가된 게시글입니다.", 400 );
+
 
     private final int errorCode;
     private final String message;

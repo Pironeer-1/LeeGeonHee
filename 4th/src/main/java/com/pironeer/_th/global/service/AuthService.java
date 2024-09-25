@@ -3,6 +3,7 @@ package com.pironeer._th.global.service;
 
 import com.pironeer._th.global.dto.response.JwtTokenSet;
 import com.pironeer._th.global.jwt.JwtUtil;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,9 +16,11 @@ public class AuthService {
     public JwtTokenSet generateToken(Long userIdx) {
         String token = jwtUtil.createToken(userIdx);
 
-        return JwtTokenSet.builder()
+        JwtTokenSet jwtTokenSet = JwtTokenSet.builder()
+                .grantType("Bearer")
                 .token(token)
                 .build();
 
+        return jwtTokenSet;
     }
 }

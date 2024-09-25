@@ -9,11 +9,14 @@ public class CustomException extends RuntimeException {
   private final ErrorCode errorCode;
 
     public CustomException(ErrorCode errorCode) {
-        this.errorCode = errorCode;
+      super(errorCode.getMessage());
+      this.errorCode = errorCode;
     }
 
     public CustomException(Exception originException, ErrorCode errorCode) {
+      super(errorCode.getMessage());
       this.originException = originException;
       this.errorCode = errorCode;
     }
+
 }
