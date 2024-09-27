@@ -13,6 +13,8 @@ import com.pironeer._th.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class MemberService {
@@ -38,6 +40,11 @@ public class MemberService {
     }
 
     public SingleResult<JwtTokenSet> login(MemberLoginRequest request) {
+        System.out.println("로그인 시도 - memberId: " + request.memberId());
+
+        Optional<Member> memberOpt = memberRepository.findByMemberId(request.memberId());
+        System.out.println("Member 조회 결과: " + memberOpt.isPresent()); // 조회 결과 확인
+
         Member member = memberRepository.findByMemberId(request.memberId())
                 .orElseThrow(() -> new CustomException(ErrorCode.USER_NOT_EXIST));
 

@@ -1,7 +1,9 @@
 package com.pironeer._th.global.dto.response;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
 
+@Getter
 public class ErrorResponse<T> {
 
     @Schema(description = "성공 여부", example = "false")
